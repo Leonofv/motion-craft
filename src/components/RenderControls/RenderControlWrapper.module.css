@@ -1,0 +1,8 @@
+.layoutContainer {
+    border: 1px solid var(--unfocused-border-color);
+    padding: var(--geist-pad);
+    border-radius: var(--geist-border-radius);
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+}

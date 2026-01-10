@@ -1,27 +1,22 @@
-import "../../styles/global.css";
-import { Metadata, Viewport } from "next";
+import '../styles/global.css';
+
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
+import { ConfigProvider } from 'antd';
+import ruRU from 'antd/locale/ru_RU';
 
 export const metadata: Metadata = {
-  title: "Remotion and Next.js",
-  description: "Remotion and Next.js",
+    title: 'MotionCraft',
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-};
-
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: ReactNode }) {
+    return (
+        <html lang="ru">
+            <body>
+                <ConfigProvider locale={ruRU} theme={{ cssVar: true }}>
+                    {children}
+                </ConfigProvider>
+            </body>
+        </html>
+    );
 }

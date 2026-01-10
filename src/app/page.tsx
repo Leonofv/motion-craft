@@ -1,79 +1,33 @@
-"use client";
+'use client';
 
-import { Player } from "@remotion/player";
-import type { NextPage } from "next";
-import React, { useMemo, useState } from "react";
-import { Main } from "../remotion/MyComp/Main";
-import {
-  CompositionProps,
-  defaultMyCompProps,
-  DURATION_IN_FRAMES,
-  VIDEO_FPS,
-  VIDEO_HEIGHT,
-  VIDEO_WIDTH,
-} from "../types/constants";
-import { z } from "zod";
-import { RenderControls } from "../components/RenderControls";
-import { Tips } from "../components/Tips/Tips";
-import { Spacing } from "../components/Spacing";
+import classes from './page.module.css';
 
-const container: React.CSSProperties = {
-  maxWidth: 768,
-  margin: "auto",
-  marginBottom: 20,
-};
+import { z } from 'zod';
+import type { NextPage } from 'next';
+import { useMemo, useState } from 'react';
+import { RenderControlsWrapper } from '../components/RenderControls/RenderControlsWrapper';
+import { CompositionProps, defaultMyCompProps } from '../helpers/constants';
+import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
 
-const outer: React.CSSProperties = {
-  borderRadius: "var(--geist-border-radius)",
-  overflow: "hidden",
-  boxShadow: "0 0 200px rgba(0, 0, 0, 0.15)",
-  marginBottom: 40,
-  marginTop: 60,
-};
+const MainPage: NextPage = () => {
+    const [text, setText] = useState<string>(defaultMyCompProps.title);
 
-const player: React.CSSProperties = {
-  width: "100%",
-};
+    const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
+        return {
+            title: text,
+        };
+    }, [text]);
 
-const Home: NextPage = () => {
-  const [text, setText] = useState<string>(defaultMyCompProps.title);
-
-  const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
-    return {
-      title: text,
-    };
-  }, [text]);
-
-  return (
-    <div>
-      <div style={container}>
-        <div className="cinematics" style={outer}>
-          <Player
-            component={Main}
-            inputProps={inputProps}
-            durationInFrames={DURATION_IN_FRAMES}
-            fps={VIDEO_FPS}
-            compositionHeight={VIDEO_HEIGHT}
-            compositionWidth={VIDEO_WIDTH}
-            style={player}
-            controls
-            autoPlay
-            loop
-          />
+    return (
+        <div className={classes.pageContainer}>
+            <VideoPlayer inputProps={inputProps} />
+            <RenderControlsWrapper
+                text={text}
+                setText={setText}
+                inputProps={inputProps}
+            />
         </div>
-        <RenderControls
-          text={text}
-          setText={setText}
-          inputProps={inputProps}
-        ></RenderControls>
-        <Spacing></Spacing>
-        <Spacing></Spacing>
-        <Spacing></Spacing>
-        <Spacing></Spacing>
-        <Tips></Tips>
-      </div>
-    </div>
-  );
+    );
 };
 
-export default Home;
+export default MainPage;

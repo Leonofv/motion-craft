@@ -1,17 +1,11 @@
 import { z } from "zod";
-import {
-  AbsoluteFill,
-  Sequence,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill, Sequence, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { NextLogo } from "./NextLogo";
 import { loadFont, fontFamily } from "@remotion/google-fonts/Inter";
 import React, { useMemo } from "react";
 import { Rings } from "./Rings";
 import { TextFade } from "./TextFade";
-import { CompositionProps } from "../../types/constants";
+import { CompositionProps } from "../../helpers/constants";
 
 loadFont("normal", {
   subsets: ["latin"],
