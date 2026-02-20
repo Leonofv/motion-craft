@@ -11,7 +11,7 @@
     "@remotion/player": "4.0.375",
     "@remotion/shapes": "4.0.375",
     "antd": "^5.28.1",
-    "next": "16.0.0",
+    "next": "^16.1.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "remotion": "4.0.375",

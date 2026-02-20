@@ -1,7 +1,7 @@
 import classes from './VideoPlayer.module.css';
 
 import { Player } from '@remotion/player';
-import { Main } from '#/remotion/MyComp/Main';
+import { NextLogoConstructor } from '#/remotion/CompositionConstructor/NextLogoConstructor';
 import {
     DURATION_IN_FRAMES,
     VIDEO_FPS,
@@ -17,7 +17,7 @@ export const VideoPlayer = ({ inputProps }: VideoPlayerProps) => {
     return (
         <div className={classes.playerContainer}>
             <Player
-                component={Main}
+                component={NextLogoConstructor}
                 inputProps={inputProps}
                 durationInFrames={DURATION_IN_FRAMES}
                 fps={VIDEO_FPS}

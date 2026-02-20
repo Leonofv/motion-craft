@@ -2,21 +2,14 @@
 
 import classes from './page.module.css';
 
-import { z } from 'zod';
 import type { NextPage } from 'next';
-import { useMemo, useState } from 'react';
 import { RenderControlsWrapper } from '../components/RenderControls/RenderControlsWrapper';
-import { CompositionProps, defaultMyCompProps } from '../helpers/constants';
-import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
+import { VideoPlayer } from '../components/VideoPlayer/ui/VideoPlayer';
+import { useVideoRenderControls } from '#/components/useVideoRenderControls';
 
 const MainPage: NextPage = () => {
-    const [text, setText] = useState<string>(defaultMyCompProps.title);
-
-    const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
-        return {
-            title: text,
-        };
-    }, [text]);
+    const { text, setText, isRendering, inputProps, renderMedia } =
+        useVideoRenderControls();
 
     return (
         <div className={classes.pageContainer}>
@@ -24,7 +17,8 @@ const MainPage: NextPage = () => {
             <RenderControlsWrapper
                 text={text}
                 setText={setText}
-                inputProps={inputProps}
+                renderMedia={renderMedia}
+                isRendering={isRendering}
             />
         </div>
     );
