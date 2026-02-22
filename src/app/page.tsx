@@ -4,7 +4,7 @@ import classes from './page.module.css';
 
 import type { NextPage } from 'next';
 import { RenderControlsWrapper } from '../components/RenderControls/RenderControlsWrapper';
-import { VideoPlayer } from '../components/VideoPlayer/ui/VideoPlayer';
+import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
 import { useVideoRenderControls } from '#/components/useVideoRenderControls';
 
 const MainPage: NextPage = () => {
@@ -16,6 +16,8 @@ const MainPage: NextPage = () => {
         renderMedia,
         videoConfig,
         setVideoConfig,
+        DSLPromptConfig,
+        setDSLPromptConfig,
     } = useVideoRenderControls();
 
     return (
@@ -28,6 +30,8 @@ const MainPage: NextPage = () => {
                 isRendering={isRendering}
                 videoConfig={videoConfig}
                 setVideoConfig={setVideoConfig}
+                DSLPromptConfig={DSLPromptConfig}
+                setDSLPromptConfig={setDSLPromptConfig}
             />
         </div>
     );

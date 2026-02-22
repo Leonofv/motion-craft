@@ -4,19 +4,23 @@ import {
     defaultMyCompProps,
     CompositionProps,
     COMP_NAME,
-    BASE_DURATION_IN_FRAMES,
-    BASE_VIDEO_FPS,
 } from '#/helpers/constants';
 import { renderVideo, getProgress } from '#/services/lambda/lambda.service';
-import type { VideoConfig } from '#/helpers/types';
+import type { DSLConfig, VideoConfig } from '#/helpers/types';
+import {
+    DEFAULT_VIDEO_CONFIG,
+    DEFAULT_DSL_CONFIG,
+} from './videoRenderConstants';
 
 export const useVideoRenderControls = () => {
     const [isRendering, setIsRendering] = useState(false);
     const [text, setText] = useState<string>(defaultMyCompProps.title);
-    const [videoConfig, setVideoConfig] = useState<VideoConfig>({
-        fps: BASE_VIDEO_FPS,
-        durationInFrames: BASE_DURATION_IN_FRAMES,
-    });
+
+    const [videoConfig, setVideoConfig] =
+        useState<VideoConfig>(DEFAULT_VIDEO_CONFIG);
+
+    const [DSLPromptConfig, setDSLPromptConfig] =
+        useState<DSLConfig>(DEFAULT_DSL_CONFIG);
 
     const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
         return {
@@ -72,5 +76,7 @@ export const useVideoRenderControls = () => {
         isRendering,
         videoConfig,
         setVideoConfig,
+        DSLPromptConfig,
+        setDSLPromptConfig,
     };
 };
