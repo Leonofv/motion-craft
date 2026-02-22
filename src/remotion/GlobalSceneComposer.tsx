@@ -1,10 +1,10 @@
 import { Composition } from 'remotion';
 import {
     COMP_NAME,
-    DURATION_IN_FRAMES,
-    VIDEO_FPS,
-    VIDEO_WIDTH,
-    VIDEO_HEIGHT,
+    BASE_DURATION_IN_FRAMES,
+    BASE_VIDEO_FPS,
+    BASE_VIDEO_WIDTH,
+    BASE_VIDEO_HEIGHT,
     defaultMyCompProps,
 } from '#/helpers/constants';
 import { NextLogoConstructor } from './CompositionConstructor/NextLogoConstructor';
@@ -15,10 +15,10 @@ export function GlobalSceneComposer() {
         <Composition
             id={COMP_NAME}
             component={NextLogoConstructor}
-            durationInFrames={DURATION_IN_FRAMES}
-            fps={VIDEO_FPS}
-            width={VIDEO_WIDTH}
-            height={VIDEO_HEIGHT}
+            durationInFrames={BASE_DURATION_IN_FRAMES}
+            fps={BASE_VIDEO_FPS}
+            width={BASE_VIDEO_WIDTH}
+            height={BASE_VIDEO_HEIGHT}
             defaultProps={defaultMyCompProps}
         />
     );

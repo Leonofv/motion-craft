@@ -8,17 +8,26 @@ import { VideoPlayer } from '../components/VideoPlayer/ui/VideoPlayer';
 import { useVideoRenderControls } from '#/components/useVideoRenderControls';
 
 const MainPage: NextPage = () => {
-    const { text, setText, isRendering, inputProps, renderMedia } =
-        useVideoRenderControls();
+    const {
+        text,
+        setText,
+        isRendering,
+        inputProps,
+        renderMedia,
+        videoConfig,
+        setVideoConfig,
+    } = useVideoRenderControls();
 
     return (
         <div className={classes.pageContainer}>
-            <VideoPlayer inputProps={inputProps} />
+            <VideoPlayer inputProps={inputProps} videoConfig={videoConfig} />
             <RenderControlsWrapper
                 text={text}
                 setText={setText}
                 renderMedia={renderMedia}
                 isRendering={isRendering}
+                videoConfig={videoConfig}
+                setVideoConfig={setVideoConfig}
             />
         </div>
     );

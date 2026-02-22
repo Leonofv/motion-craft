@@ -2,12 +2,16 @@ import classes from './RenderControlWrapper.module.css';
 
 import { Button, Layout } from 'antd';
 import { Input } from 'antd';
+import { VideoConfigsControls } from './VideoConfigsControls/VideoConfigsControls';
+import type { VideoConfig } from '#/helpers/types';
 
 interface RenderControlsWrapperProps {
     text: string;
     setText: React.Dispatch<React.SetStateAction<string>>;
     renderMedia: () => Promise<void>;
     isRendering: boolean;
+    videoConfig: VideoConfig;
+    setVideoConfig: React.Dispatch<React.SetStateAction<VideoConfig>>;
 }
 
 export function RenderControlsWrapper({
@@ -15,6 +19,8 @@ export function RenderControlsWrapper({
     setText,
     renderMedia,
     isRendering,
+    videoConfig,
+    setVideoConfig,
 }: RenderControlsWrapperProps) {
     return (
         <Layout className={classes.layoutContainer}>
@@ -25,6 +31,10 @@ export function RenderControlsWrapper({
                         backgroundColor: 'white',
                     }}
                 >
+                    <VideoConfigsControls
+                        config={videoConfig}
+                        onChange={setVideoConfig}
+                    />
                     <Input
                         disabled={isRendering}
                         onChange={(e) => setText(e.currentTarget.value)}
