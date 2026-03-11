@@ -1,7 +1,7 @@
 import classes from './VideoPlayer.module.css';
 
 import { Player } from '@remotion/player';
-import { NextLogoConstructor } from '#/remotion/CompositionConstructor/NextLogoConstructor';
+import { CompositionConstructor } from '#/remotion/CompositionConstructor/CompositionConstructor';
 import type { VideoConfig } from '#/helpers/types';
 import { BASE_VIDEO_HEIGHT, BASE_VIDEO_WIDTH } from '#/helpers/constants';
 
@@ -14,7 +14,8 @@ export const VideoPlayer = ({ inputProps, videoConfig }: VideoPlayerProps) => {
     return (
         <div className={classes.playerContainer}>
             <Player
-                component={NextLogoConstructor}
+                acknowledgeRemotionLicense={true}
+                component={CompositionConstructor}
                 inputProps={inputProps}
                 durationInFrames={videoConfig.durationInFrames}
                 fps={videoConfig.fps}

@@ -28,7 +28,6 @@ export function RenderControlsWrapper({
     DSLPromptConfig,
     setDSLPromptConfig,
 }: RenderControlsWrapperProps) {
-    console.log(DSLPromptConfig);
     return (
         <Layout className={classes.layoutContainer}>
             <Space direction="vertical" className={classes.spaceContainer}>
@@ -52,7 +51,6 @@ export function RenderControlsWrapper({
                             icon={<DownloadOutlined />}
                             variant="solid"
                             size="large"
-                            style={{ alignSelf: 'flex-end' }}
                         >
                             Скачать
                         </Button>
@@ -63,7 +61,6 @@ export function RenderControlsWrapper({
                         onClick={renderMedia}
                         variant="solid"
                         size="large"
-                        style={{ alignSelf: 'flex-end' }}
                     >
                         Применить
                     </Button>

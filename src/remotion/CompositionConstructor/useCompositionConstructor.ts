@@ -1,6 +1,6 @@
 import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
-export const useNextLogoContructor = () => {
+export const useCompositionConstructor = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 

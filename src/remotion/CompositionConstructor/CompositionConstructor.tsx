@@ -4,13 +4,13 @@ import { AbsoluteFill, Sequence } from 'remotion';
 import { Logo } from './CompositionTemplates/NextLogo/Logo/Logo';
 import { Rings } from './CompositionTemplates/NextLogo/Rings/Rings';
 import { TextFade } from './CompositionTemplates/TextFade/TextFade';
-import { useNextLogoContructor } from './useNextLogoContructor';
+import { useCompositionConstructor } from './useCompositionConstructor';
 
-export const NextLogoConstructor = ({
+export const CompositionConstructor = ({
     title,
 }: z.infer<typeof CompositionProps>) => {
     const { logoOut, transitionStart, transitionDuration } =
-        useNextLogoContructor();
+        useCompositionConstructor();
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'white' }}>
