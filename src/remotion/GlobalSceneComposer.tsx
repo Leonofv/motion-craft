@@ -5,7 +5,7 @@ import {
     BASE_VIDEO_FPS,
     BASE_VIDEO_WIDTH,
     BASE_VIDEO_HEIGHT,
-    defaultMyCompProps,
+    defaultCompProps,
 } from '../helpers/constants';
 import { CompositionConstructor } from './CompositionConstructor/CompositionConstructor';
 
@@ -19,7 +19,7 @@ export const GlobalSceneComposer = () => {
             fps={BASE_VIDEO_FPS}
             width={BASE_VIDEO_WIDTH}
             height={BASE_VIDEO_HEIGHT}
-            defaultProps={defaultMyCompProps}
+            defaultProps={defaultCompProps}
         />
     );
 };

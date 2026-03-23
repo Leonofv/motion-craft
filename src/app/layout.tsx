@@ -4,9 +4,10 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { ConfigProvider } from 'antd';
 import ruRU from 'antd/locale/ru_RU';
+import { DEFAULT_PROJECT_NAME } from '#/helpers/constants';
 
 export const metadata: Metadata = {
-    title: 'MotionCraft',
+    title: DEFAULT_PROJECT_NAME,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

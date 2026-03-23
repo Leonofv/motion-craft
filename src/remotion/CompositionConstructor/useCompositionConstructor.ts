@@ -1,5 +1,6 @@
 import { spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
+// Должен содержать в себе набор переходов между сценами композиций
 export const useCompositionConstructor = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();

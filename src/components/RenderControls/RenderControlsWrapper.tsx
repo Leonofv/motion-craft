@@ -2,14 +2,11 @@ import classes from './RenderControlWrapper.module.css';
 
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Layout, Space, Flex } from 'antd';
-import { Input } from 'antd';
 import { VideoConfigsControls } from './VideoConfigsControls/VideoConfigsControls';
 import { DSLPromptControls } from './DSLPromptControls/DSLPromptControls';
 import type { DSLConfig, VideoConfig } from '#/helpers/types';
 
 interface RenderControlsWrapperProps {
-    text: string;
-    setText: React.Dispatch<React.SetStateAction<string>>;
     renderMedia: () => Promise<void>;
     isRendering: boolean;
     videoConfig: VideoConfig;
@@ -19,8 +16,6 @@ interface RenderControlsWrapperProps {
 }
 
 export function RenderControlsWrapper({
-    text,
-    setText,
     renderMedia,
     isRendering,
     videoConfig,
@@ -31,27 +26,11 @@ export function RenderControlsWrapper({
     return (
         <Layout className={classes.layoutContainer}>
             <Space direction="vertical" className={classes.spaceContainer}>
-                <VideoConfigsControls
-                    config={videoConfig}
-                    onChange={setVideoConfig}
-                />
-                <DSLPromptControls
-                    config={DSLPromptConfig}
-                    onChange={setDSLPromptConfig}
-                />
-                <Input
-                    disabled={isRendering}
-                    onChange={(e) => setText(e.currentTarget.value)}
-                    value={text}
-                    size="large"
-                />
+                <VideoConfigsControls config={videoConfig} onChange={setVideoConfig} />
+                <DSLPromptControls config={DSLPromptConfig} onChange={setDSLPromptConfig} />
                 <Flex gap="var(--ant-margin-sm)" justify="flex-end">
                     {!isRendering ? (
-                        <Button
-                            icon={<DownloadOutlined />}
-                            variant="solid"
-                            size="large"
-                        >
+                        <Button icon={<DownloadOutlined />} variant="solid" size="large">
                             Скачать
                         </Button>
                     ) : null}
