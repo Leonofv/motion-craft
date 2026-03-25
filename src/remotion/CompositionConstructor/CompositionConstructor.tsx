@@ -1,22 +1,25 @@
 import { AbsoluteFill, Sequence } from 'remotion';
-import { Logo } from './CompositionTemplates/MotionCraftLogo/Logo/Logo';
-import { Rings } from './CompositionTemplates/MotionCraftLogo/Rings/Rings';
-import { TextFade } from './CompositionTemplates/TextFade/TextFade';
+import { Logo } from '../CompositionTemplates/DefaultComposition/MotionCraftLogo/Logo/Logo';
+import { Rings } from '../CompositionTemplates/DefaultComposition/MotionCraftLogo/Rings/Rings';
+import { TextFade } from '../CompositionTemplates/DefaultComposition/TextFade/TextFade';
 import { useCompositionConstructor } from './useCompositionConstructor';
 import { DEFAULT_PROJECT_NAME } from '#/helpers/constants';
 
+// Предполагается как сервис, в который мы будем передавать из useCompositionConstructor обработанные наборы SceneTemplates и TransitionTemplates
+// Из которых мы будем формировать композицию и возвращать ее
 export const CompositionConstructor = () => {
-    const { logoOut, transitionStart, transitionDuration } = useCompositionConstructor();
+    const { defaultTransitionDelay, defaultTransitionDuration } = useCompositionConstructor();
 
     return (
-        <AbsoluteFill style={{ backgroundColor: 'white' }}>
-            <Sequence durationInFrames={transitionStart + transitionDuration}>
-                <Rings outProgress={logoOut} />
-                <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Logo outProgress={logoOut} />
+        // При первом запуске приложения возвращается эта композиция, иначе другая - сгенерированная нами
+        <AbsoluteFill>
+            <Sequence durationInFrames={defaultTransitionDelay + defaultTransitionDuration}>
+                <Rings />
+                <AbsoluteFill style={{ justifyContent: 'center' }}>
+                    <Logo />
                 </AbsoluteFill>
             </Sequence>
-            <Sequence from={transitionStart + transitionDuration / 2}>
+            <Sequence from={defaultTransitionDelay + defaultTransitionDuration / 2}>
                 <TextFade>
                     <h1 style={{ fontSize: 70 }}>{DEFAULT_PROJECT_NAME}</h1>
                 </TextFade>

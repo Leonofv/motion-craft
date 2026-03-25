@@ -33,6 +33,16 @@ export const useLogo = () => {
         },
     });
 
+    const logoOutSpring = spring({
+        fps,
+        frame,
+        config: {
+            damping: 200,
+        },
+        durationInFrames: 1.5 * fps,
+        delay: 2 * fps,
+    });
+
     const leftLegAnimation = evolvePath(leftLegSpring, leftLeg);
     const chevronAnimation = evolvePath(chevronSpring, centerChevron);
     const rightLegAnimation = evolvePath(interpolate(rightLegSpring, [0, 1], [0, 0.7]), rightLeg);
@@ -44,5 +54,6 @@ export const useLogo = () => {
         chevronAnimation,
         rightLeg,
         rightLegAnimation,
+        logoOutSpring,
     };
 };

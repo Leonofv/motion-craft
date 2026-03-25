@@ -1,16 +1,13 @@
 import { useLogo } from './useLogo';
 
-interface LogoProps {
-    outProgress?: number;
-}
-
 const mStroke = 'M54 54V125.97H70V83L90 107L110 83V125.97H126V54H110L90 78L70 54H54Z';
 
-export function Logo({ outProgress = 0 }: LogoProps) {
-    const { leftLeg, leftLegAnimation, centerChevron, chevronAnimation, rightLeg, rightLegAnimation } = useLogo();
+export const Logo = () => {
+    const { leftLeg, leftLegAnimation, centerChevron, chevronAnimation, rightLeg, rightLegAnimation, logoOutSpring } =
+        useLogo();
 
     return (
-        <svg style={{ height: 140, borderRadius: 70, scale: 1 - outProgress }} viewBox="0 0 180 180" fill="none">
+        <svg style={{ height: 140, borderRadius: 70, scale: 1 - logoOutSpring }} viewBox="0 0 180 180" fill="none">
             <mask height={180} width={180}>
                 <circle cx={90} cy={90} r={90} fill="black" />
             </mask>
@@ -48,4 +45,4 @@ export function Logo({ outProgress = 0 }: LogoProps) {
             </defs>
         </svg>
     );
-}
+};

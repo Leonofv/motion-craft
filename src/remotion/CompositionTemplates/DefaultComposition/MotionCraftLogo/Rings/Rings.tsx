@@ -1,13 +1,13 @@
 import classes from './Rings.module.css';
 import { AbsoluteFill, useVideoConfig } from 'remotion';
+import { useRings } from './useRings';
 
-interface RingsProps {
-    outProgress: number;
-}
-
-export const Rings = ({ outProgress }: RingsProps) => {
+export const Rings = () => {
     const { height } = useVideoConfig();
-    const scaleValue = 1 / (1 - outProgress);
+
+    const { ringsOutSpring } = useRings();
+
+    const scaleValue = 1 / (1 - ringsOutSpring);
 
     return (
         <AbsoluteFill
