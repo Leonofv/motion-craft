@@ -4,9 +4,7 @@ import { useRings } from './useRings';
 
 export const Rings = () => {
     const { height } = useVideoConfig();
-
     const { ringsOutSpring } = useRings();
-
     const scaleValue = 1 / (1 - ringsOutSpring);
 
     return (
