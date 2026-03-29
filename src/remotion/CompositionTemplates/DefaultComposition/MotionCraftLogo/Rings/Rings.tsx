@@ -21,9 +21,9 @@ export const Rings = () => {
                     const radius = height * i * 0.6;
 
                     return (
-                        <AbsoluteFill key={i} className={classes.ringWrapper}>
+                        <AbsoluteFill key={i} className={classes.ringsWrapper}>
                             <div
-                                className={classes.ring}
+                                className={classes.rings}
                                 style={{
                                     height: radius,
                                     width: radius,
