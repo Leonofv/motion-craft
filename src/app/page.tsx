@@ -6,26 +6,16 @@ import type { NextPage } from 'next';
 import { RenderControlsWrapper } from '../components/RenderControls/RenderControlsWrapper';
 import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
 import { useVideoRenderControls } from '#/components/useVideoRenderControls';
+import { defaultCompProps } from '#/helpers/constants';
 
 const MainPage: NextPage = () => {
-    const {
-        text,
-        setText,
-        isRendering,
-        inputProps,
-        renderMedia,
-        videoConfig,
-        setVideoConfig,
-        DSLPromptConfig,
-        setDSLPromptConfig,
-    } = useVideoRenderControls();
+    const { isRendering, renderMedia, videoConfig, setVideoConfig, DSLPromptConfig, setDSLPromptConfig } =
+        useVideoRenderControls();
 
     return (
         <div className={classes.pageContainer}>
-            <VideoPlayer inputProps={inputProps} videoConfig={videoConfig} />
+            <VideoPlayer inputProps={defaultCompProps} videoConfig={videoConfig} />
             <RenderControlsWrapper
-                text={text}
-                setText={setText}
                 renderMedia={renderMedia}
                 isRendering={isRendering}
                 videoConfig={videoConfig}

@@ -1,32 +1,27 @@
-import { z } from 'zod';
-import { CompositionProps } from '#/helpers/constants';
 import { AbsoluteFill, Sequence } from 'remotion';
-import { Logo } from './CompositionTemplates/NextLogo/Logo/Logo';
-import { Rings } from './CompositionTemplates/NextLogo/Rings/Rings';
-import { TextFade } from './CompositionTemplates/TextFade/TextFade';
 import { useCompositionConstructor } from './useCompositionConstructor';
+import { SceneComponents } from './helper/types';
 
-export const CompositionConstructor = ({
-    title,
-}: z.infer<typeof CompositionProps>) => {
-    const { logoOut, transitionStart, transitionDuration } =
-        useCompositionConstructor();
+type CompositionConstructorProps = {
+    sceneComponents: SceneComponents;
+};
+
+export const CompositionConstructor = ({ sceneComponents }: CompositionConstructorProps) => {
+    const { processedScenes } = useCompositionConstructor(sceneComponents);
 
     return (
-        <AbsoluteFill style={{ backgroundColor: 'white' }}>
-            <Sequence durationInFrames={transitionStart + transitionDuration}>
-                <Rings outProgress={logoOut}></Rings>
-                <AbsoluteFill
-                    style={{ justifyContent: 'center', alignItems: 'center' }}
+        <AbsoluteFill>
+            {processedScenes.map(({ components, from, durationInFrames }) => (
+                <Sequence
+                    key={components.map((comp) => comp.displayName ?? comp.name).join('+')}
+                    from={from}
+                    durationInFrames={durationInFrames}
                 >
-                    <Logo outProgress={logoOut}></Logo>
-                </AbsoluteFill>
-            </Sequence>
-            <Sequence from={transitionStart + transitionDuration / 2}>
-                <TextFade>
-                    <h1 style={{ fontSize: 70 }}>{title}</h1>
-                </TextFade>
-            </Sequence>
+                    {components.map((Scene) => (
+                        <Scene key={Scene.displayName ?? Scene.name} />
+                    ))}
+                </Sequence>
+            ))}
         </AbsoluteFill>
     );
 };

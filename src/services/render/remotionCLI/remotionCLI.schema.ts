@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const RenderDataSchema = z.object({
     compositionId: z.string(),
     outputFileName: z.string(),
-    inputProps: z.record(z.unknown()).optional(),
+    inputProps: z.string(),
     codec: z.string(),
     fps: z.number(),
     width: z.number(),

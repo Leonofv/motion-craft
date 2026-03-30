@@ -1,7 +1,7 @@
 import classes from './VideoPlayer.module.css';
-
 import { Player } from '@remotion/player';
-import { CompositionConstructor } from '#/remotion/CompositionConstructor/CompositionConstructor';
+import { SceneTemplatesProvider } from '#/remotion/CompositionTemplates/SceneTemplates/SceneTemplatesProvider';
+// import { DefaultCompositionConfig } from '#/remotion/CompositionTemplates/DefaultComposition/DefaultCompositionConfig';
 import type { VideoConfig } from '#/helpers/types';
 import { BASE_VIDEO_HEIGHT, BASE_VIDEO_WIDTH } from '#/helpers/constants';
 
@@ -15,7 +15,7 @@ export const VideoPlayer = ({ inputProps, videoConfig }: VideoPlayerProps) => {
         <div className={classes.playerContainer}>
             <Player
                 acknowledgeRemotionLicense={true}
-                component={CompositionConstructor}
+                component={SceneTemplatesProvider}
                 inputProps={inputProps}
                 durationInFrames={videoConfig.durationInFrames}
                 fps={videoConfig.fps}

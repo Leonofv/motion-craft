@@ -5,8 +5,10 @@ export const CompositionProps = z.object({
     title: z.string(),
 });
 
-export const defaultMyCompProps: z.infer<typeof CompositionProps> = {
-    title: 'Hello world',
+export const DEFAULT_PROJECT_NAME = 'MotionCraft';
+
+export const defaultCompProps: z.infer<typeof CompositionProps> = {
+    title: DEFAULT_PROJECT_NAME,
 };
 
 export const BASE_DURATION_IN_FRAMES = 200;
