@@ -1,25 +1,24 @@
-import { ComponentType } from 'react';
 import { AbsoluteFill, Sequence } from 'remotion';
 import { useCompositionConstructor } from './useCompositionConstructor';
+import { SceneComponents } from './helper/types';
 
 type CompositionConstructorProps = {
-    scenes: ComponentType[][];
+    sceneComponents: SceneComponents;
 };
 
-// Чистый рендерер: получает группы компонентов-сцен, передаёт в useCompositionConstructor для сборки и рендерит результат
-export const CompositionConstructor = ({ scenes }: CompositionConstructorProps) => {
-    const { processedScenes } = useCompositionConstructor(scenes);
+export const CompositionConstructor = ({ sceneComponents }: CompositionConstructorProps) => {
+    const { processedScenes } = useCompositionConstructor(sceneComponents);
 
     return (
         <AbsoluteFill>
             {processedScenes.map(({ components, from, durationInFrames }) => (
                 <Sequence
-                    key={components.map((comp) => comp.name).join('+')}
+                    key={components.map((comp) => comp.displayName ?? comp.name).join('+')}
                     from={from}
                     durationInFrames={durationInFrames}
                 >
                     {components.map((Scene) => (
-                        <Scene key={Scene.name} />
+                        <Scene key={Scene.displayName ?? Scene.name} />
                     ))}
                 </Sequence>
             ))}
