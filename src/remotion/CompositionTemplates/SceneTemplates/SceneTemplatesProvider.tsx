@@ -7,6 +7,9 @@ import { CenterRing } from './Center/CenterRing/CenterRing';
 import { TextSlide } from './Edges/TextSlide/TextSlide';
 import { HorizontalLine } from './Edges/HorizontalLine/HorizontalLine';
 import { VerticalLine } from './Edges/VerticalLine/VerticalLine';
+import { CornerDot } from './Angles/CornerDot/CornerDot';
+import { CornerBracket } from './Angles/CornerBracket/CornerBracket';
+import { CornerText } from './Angles/CornerText/CornerText';
 
 export const SceneTemplatesProvider = () => (
     <CompositionConstructor
@@ -14,6 +17,7 @@ export const SceneTemplatesProvider = () => (
             backgrounds: [GradientViolet, GradientCrimson, GradientCyber],
             centerElements: [CenterText, CenterRing],
             edgeElements: [TextSlide, HorizontalLine, VerticalLine],
+            angleElements: [CornerDot, CornerBracket, CornerText],
         }}
     />
 );

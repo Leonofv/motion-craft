@@ -1,0 +1,23 @@
+.bracket {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.vertical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+}

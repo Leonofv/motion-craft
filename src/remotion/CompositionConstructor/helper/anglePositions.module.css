@@ -1,0 +1,24 @@
+.top-left {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-left: 80px;
+}
+.top-right {
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-top: 60px;
+    padding-right: 80px;
+}
+.bottom-left {
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-bottom: 60px;
+    padding-left: 80px;
+}
+.bottom-right {
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 60px;
+    padding-right: 80px;
+}
