@@ -6,11 +6,21 @@ export type AnglePosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-r
 
 export type ComponentPosition = EdgePosition | AnglePosition;
 
-export type SceneComponents = {
-    backgrounds: ComponentType[];
+export type ElementsPositions = {
     centerElements: ComponentType[];
     edgeElements: ComponentType[];
     angleElements: ComponentType[];
+};
+
+export type ThirdPlanComponents = {
+    elements: ComponentType[];
+};
+
+export type SceneComponents = {
+    backgrounds: ComponentType[];
+    thirdPlan: ThirdPlanComponents;
+    secondPlan: ElementsPositions;
+    firstPlan: ElementsPositions;
 };
 
 export type ProcessedScene = {

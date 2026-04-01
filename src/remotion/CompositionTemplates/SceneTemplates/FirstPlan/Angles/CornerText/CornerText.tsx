@@ -1,15 +1,15 @@
-import { useFadeSlide } from '../../_shared/useFadeSlide';
 import { Typography } from 'antd';
-import classes from './TextSlide.module.css';
+import { useFadeSlide } from '../../../_shared/useFadeSlide';
+import classes from './CornerText.module.css';
 
 const { Text } = Typography;
 
-export const TextSlide = () => {
+export const CornerText = () => {
     const { translate, opacity } = useFadeSlide();
 
     return (
         <Text className={classes.text} style={{ transform: `translateY(${translate}px)`, opacity }}>
-            Text
+            Label
         </Text>
     );
 };

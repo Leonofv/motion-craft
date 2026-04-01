@@ -1,0 +1,21 @@
+.container {
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.beam {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 55px;
+    height: 130%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 255, 255, 0.15) 70%,
+        transparent 100%
+    );
+    filter: blur(6px);
+}

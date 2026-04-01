@@ -1,4 +1,4 @@
-import { useLineGrow } from '../../_shared/useLineGrow';
+import { useLineGrow } from '../../../_shared/useLineGrow';
 import classes from './VerticalLine.module.css';
 
 export const VerticalLine = () => {

@@ -1,5 +1,5 @@
 import { AbsoluteFill } from 'remotion';
-import { useFadeSlide } from '../../_shared/useFadeSlide';
+import { useFadeSlide } from '../../../_shared/useFadeSlide';
 import { Typography } from 'antd';
 import classes from './CenterText.module.css';
 import centerClasses from '../CenterStyles.module.css';
