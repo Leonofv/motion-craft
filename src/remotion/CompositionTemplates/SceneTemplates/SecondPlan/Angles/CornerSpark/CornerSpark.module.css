@@ -1,0 +1,18 @@
+.container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+}
+
+.spark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 1.5px;
+    transform-origin: left center;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent);
+    box-shadow: 0 0 5px rgba(200, 175, 255, 0.6);
+    border-radius: 1px;
+}

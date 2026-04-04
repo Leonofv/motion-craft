@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.title {
+    font-size: 68px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 8px;
+    line-height: 1;
+    text-align: center;
+}
+
+.underline {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffffff 30%, #ffffff 70%, transparent);
+    border-radius: 2px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+}

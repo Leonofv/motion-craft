@@ -1,0 +1,9 @@
+.flare {
+    width: 56px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(195, 155, 255, 0.6), transparent);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.35), 0 0 22px rgba(195, 155, 255, 0.2);
+    border-radius: 1px;
+    transform-origin: left center;
+    pointer-events: none;
+}

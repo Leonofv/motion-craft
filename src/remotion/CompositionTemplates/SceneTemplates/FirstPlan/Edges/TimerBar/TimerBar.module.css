@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+    min-width: 260px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.counter {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.track {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    overflow: visible;
+}
+
+.fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: width 0s;
+}
+
+.glow {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.6);
+}

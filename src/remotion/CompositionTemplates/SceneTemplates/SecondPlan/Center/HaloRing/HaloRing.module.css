@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.halo {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155, 110, 255, 0.3) 0%, rgba(80, 155, 255, 0.14) 45%, transparent 70%);
+    filter: blur(14px);
+}

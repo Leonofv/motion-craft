@@ -29,17 +29,17 @@ export const useCompositionConstructor = (sceneComponents: SceneComponents) => {
     const mockCompositions: SceneConfig[] = [
         {
             background: sceneComponents.backgrounds[0],
-            thirdPlan: [tp.elements[0], tp.elements[1]],
-            centers: [{ first: fp.centerElements[0], second: sp.centerElements[0] }, { first: fp.centerElements[1] }],
+            thirdPlan: [tp.elements[2]],
+            centers: [{ first: fp.centerElements[0], second: sp.centerElements[1] }],
             edges: [
                 { first: fp.edgeElements[1], second: sp.edgeElements[0], position: 'top' },
-                { first: fp.edgeElements[1], second: sp.edgeElements[0], position: 'bottom' },
-                { first: fp.edgeElements[2], second: sp.edgeElements[1], position: 'left' },
-                { first: fp.edgeElements[2], second: sp.edgeElements[1], position: 'right' },
+                { first: fp.edgeElements[0], second: sp.edgeElements[0], position: 'bottom' },
+                { first: fp.edgeElements[2], second: sp.edgeElements[0], position: 'left' },
+                { first: fp.edgeElements[2], second: sp.edgeElements[0], position: 'right' },
             ],
             angles: [
-                { first: fp.angleElements[0], second: sp.angleElements[0], position: 'top-left' },
-                { first: fp.angleElements[0], second: sp.angleElements[0], position: 'top-right' },
+                { first: fp.angleElements[0], second: sp.angleElements[1], position: 'top-left' },
+                { first: fp.angleElements[0], second: sp.angleElements[1], position: 'top-right' },
                 { first: fp.angleElements[0], second: sp.angleElements[1], position: 'bottom-left' },
                 { first: fp.angleElements[0], second: sp.angleElements[1], position: 'bottom-right' },
             ],

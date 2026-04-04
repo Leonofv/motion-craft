@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.textLeft,
+.textRight {
+    font-size: 72px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 6px;
+    line-height: 1;
+    display: block;
+}
+
+.divider {
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    border-radius: 2px;
+    flex-shrink: 0;
+}

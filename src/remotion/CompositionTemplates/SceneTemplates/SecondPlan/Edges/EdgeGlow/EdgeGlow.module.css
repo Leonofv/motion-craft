@@ -1,0 +1,8 @@
+.glow {
+    width: 260px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(170, 130, 255, 0.7) 0%, rgba(90, 170, 255, 0.3) 50%, transparent 80%);
+    filter: blur(8px);
+    pointer-events: none;
+}

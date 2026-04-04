@@ -1,0 +1,10 @@
+.container {
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.dust {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+}
