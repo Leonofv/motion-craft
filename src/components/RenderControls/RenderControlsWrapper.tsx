@@ -3,7 +3,7 @@ import classes from './RenderControlWrapper.module.css';
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Layout, Space, Flex } from 'antd';
 import { VideoConfigsControls } from './VideoConfigsControls/VideoConfigsControls';
-import { DSLPromptControls } from './DSLPromptControls/DSLPromptControls';
+import { PromptControls } from './PromptControls/PromptControls';
 import type { DSLConfig, VideoConfig } from '#/helpers/types';
 
 interface RenderControlsWrapperProps {
@@ -11,8 +11,10 @@ interface RenderControlsWrapperProps {
     isRendering: boolean;
     videoConfig: VideoConfig;
     setVideoConfig: React.Dispatch<React.SetStateAction<VideoConfig>>;
-    DSLPromptConfig: DSLConfig;
-    setDSLPromptConfig: React.Dispatch<React.SetStateAction<DSLConfig>>;
+    promptConfig: DSLConfig;
+    setPromptConfig: React.Dispatch<React.SetStateAction<DSLConfig>>;
+    sendPrompt: () => Promise<void>;
+    isPromtLoading: boolean;
 }
 
 export function RenderControlsWrapper({
@@ -20,14 +22,21 @@ export function RenderControlsWrapper({
     isRendering,
     videoConfig,
     setVideoConfig,
-    DSLPromptConfig,
-    setDSLPromptConfig,
+    promptConfig,
+    setPromptConfig,
+    sendPrompt,
+    isPromtLoading,
 }: RenderControlsWrapperProps) {
     return (
         <Layout className={classes.layoutContainer}>
             <Space direction="vertical" className={classes.spaceContainer}>
                 <VideoConfigsControls config={videoConfig} onChange={setVideoConfig} />
-                <DSLPromptControls config={DSLPromptConfig} onChange={setDSLPromptConfig} />
+                <PromptControls
+                    promptConfig={promptConfig}
+                    setPromptConfig={setPromptConfig}
+                    sendPrompt={sendPrompt}
+                    isPromtLoading={isPromtLoading}
+                />
                 <Flex gap="var(--ant-margin-sm)" justify="flex-end">
                     {!isRendering ? (
                         <Button icon={<DownloadOutlined />} variant="solid" size="large">

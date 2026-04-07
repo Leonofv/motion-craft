@@ -9,8 +9,16 @@ import { useVideoRenderControls } from '#/components/useVideoRenderControls';
 import { defaultCompProps } from '#/helpers/constants';
 
 const MainPage: NextPage = () => {
-    const { isRendering, renderMedia, videoConfig, setVideoConfig, DSLPromptConfig, setDSLPromptConfig } =
-        useVideoRenderControls();
+    const {
+        isRendering,
+        renderMedia,
+        videoConfig,
+        setVideoConfig,
+        promptConfig,
+        setPromptConfig,
+        sendPrompt,
+        isPromtLoading,
+    } = useVideoRenderControls();
 
     return (
         <div className={classes.pageContainer}>
@@ -20,8 +28,10 @@ const MainPage: NextPage = () => {
                 isRendering={isRendering}
                 videoConfig={videoConfig}
                 setVideoConfig={setVideoConfig}
-                DSLPromptConfig={DSLPromptConfig}
-                setDSLPromptConfig={setDSLPromptConfig}
+                promptConfig={promptConfig}
+                setPromptConfig={setPromptConfig}
+                sendPrompt={sendPrompt}
+                isPromtLoading={isPromtLoading}
             />
         </div>
     );

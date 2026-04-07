@@ -7,6 +7,11 @@ interface Option<T> {
     value: T;
 }
 
+export type ImageFormatOption = Option<VideoImageFormat>;
+export type PixelFormatOption = Option<PixelFormat>;
+export type CodecOption = Option<Codec>;
+export type ProResProfileOption = Option<ProResProfile>;
+
 export interface VideoConfig {
     outName: string;
     fps: number;
@@ -17,11 +22,7 @@ export interface VideoConfig {
     proResProfile: ProResProfile | null;
 }
 
-export type ImageFormatOption = Option<VideoImageFormat>;
-export type PixelFormatOption = Option<PixelFormat>;
-export type CodecOption = Option<Codec>;
-export type ProResProfileOption = Option<ProResProfile>;
-
 export interface DSLConfig {
-    text: string;
+    requestText: string | null;
+    responseText: string | null;
 }

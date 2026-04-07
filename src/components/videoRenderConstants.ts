@@ -12,5 +12,6 @@ export const DEFAULT_VIDEO_CONFIG: VideoConfig = {
 };
 
 export const DEFAULT_DSL_CONFIG: DSLConfig = {
-    text: '',
+    requestText: null,
+    responseText: null,
 };

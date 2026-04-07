@@ -3,12 +3,26 @@ import type { DSLConfig, VideoConfig } from '#/helpers/types';
 import { COMP_NAME, BASE_VIDEO_HEIGHT, BASE_VIDEO_WIDTH, defaultCompProps } from '#/helpers/constants';
 import { DEFAULT_VIDEO_CONFIG, DEFAULT_DSL_CONFIG } from './videoRenderConstants';
 import { RemotionCliService } from '#/services/render/remotionCLI/remotionCLI.service';
+import { OpenRouterService } from '#/services/openRouter/openRouter.service';
 
 export const useVideoRenderControls = () => {
-    const [isRendering, setIsRendering] = useState(false);
+    const [isPromtLoading, setIsPropmtLoading] = useState(false);
+    const [promptConfig, setPromptConfig] = useState<DSLConfig>(DEFAULT_DSL_CONFIG);
 
+    const [isRendering, setIsRendering] = useState(false);
     const [videoConfig, setVideoConfig] = useState<VideoConfig>(DEFAULT_VIDEO_CONFIG);
-    const [DSLPromptConfig, setDSLPromptConfig] = useState<DSLConfig>(DEFAULT_DSL_CONFIG);
+
+    const sendPrompt = async () => {
+        setIsPropmtLoading(true);
+        try {
+            const result = await OpenRouterService.sendQwenPrompt({ prompt: promptConfig.requestText ?? '' });
+            setPromptConfig((prev) => ({ ...prev, response: result }));
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsPropmtLoading(false);
+        }
+    };
 
     const renderMedia = async () => {
         setIsRendering(true);
@@ -34,7 +48,9 @@ export const useVideoRenderControls = () => {
         isRendering,
         videoConfig,
         setVideoConfig,
-        DSLPromptConfig,
-        setDSLPromptConfig,
+        promptConfig,
+        setPromptConfig,
+        sendPrompt,
+        isPromtLoading,
     };
 };
